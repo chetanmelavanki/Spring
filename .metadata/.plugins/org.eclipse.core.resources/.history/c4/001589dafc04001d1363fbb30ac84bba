@@ -1,0 +1,25 @@
+package com.xworkz.tester;
+
+import com.xworkz.dao.TrainDAO;
+import com.xworkz.impl.ServiceImpl;
+import com.xworkz.impl.TrainImpl;
+import com.xworkz.service.TrainService;
+import com.xworkz.trainentity.TrainEntity;
+
+public class ServiceTester {
+	public static void main(String[] args) {
+		TrainEntity entity = new TrainEntity("Ganesha", "Green", 250, "300c");
+		TrainService service = new ServiceImpl();
+		boolean outcome = service.validateTrainEntity(entity);
+		System.out.println(outcome);
+
+		if (outcome) {
+			TrainDAO dao = new TrainImpl();
+			dao.saveTrain(entity);
+			System.out.println("Entered Train Entity data is valid ");
+		} else {
+			System.out.println("Train is not valid .......Try Again");
+
+		}
+	}
+}

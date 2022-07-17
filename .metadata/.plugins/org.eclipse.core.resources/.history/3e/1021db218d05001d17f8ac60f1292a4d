@@ -1,0 +1,19 @@
+package com.xworkz.tester;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.xworkz.impl.TrainImpl;
+import com.xworkz.trainentity.TrainEntity;
+
+public class Traintester {
+	public static void main(String[] args) {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		TrainImpl impl = applicationContext.getBean(TrainImpl.class);
+		TrainEntity entity = new TrainEntity();
+		entity.setTrainName("GG");
+		entity.setTrainColor("blue");
+		entity.setTrainSpeed(7868);
+		entity.setTrainCompartments("76j");
+	}
+}

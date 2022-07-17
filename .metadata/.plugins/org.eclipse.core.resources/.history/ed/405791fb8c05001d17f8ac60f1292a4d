@@ -1,0 +1,14 @@
+package com.xworkz.tester;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import com.xworkz.impl.TrainImpl;
+
+public class Traintester {
+	public static void main(String[] args) {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		TrainImpl impl = applicationContext.getBean(TrainImpl.class);
+	}
+}

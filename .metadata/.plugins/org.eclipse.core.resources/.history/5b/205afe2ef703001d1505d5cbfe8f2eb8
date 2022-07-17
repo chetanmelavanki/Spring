@@ -1,0 +1,8 @@
+package com.xworkz.trainentity;
+
+public class TrainEntity {
+	String trainNam;
+	String trainColor;
+	int trainSpeed;
+	String trainCompartments;
+}

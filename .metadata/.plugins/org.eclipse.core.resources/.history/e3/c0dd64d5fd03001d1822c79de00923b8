@@ -1,0 +1,16 @@
+package com.xworkz.impl;
+
+import com.mysql.cj.xdevapi.SessionFactory;
+import com.xworkz.dao.TrainDAO;
+import com.xworkz.trainentity.TrainEntity;
+
+public class TrainImpl implements TrainDAO{
+	
+	private SessionFactory factory;
+
+	@Override
+	public void saveTrain(TrainEntity entity) {
+		
+	}
+
+}

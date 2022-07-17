@@ -1,0 +1,39 @@
+package com.xworkz.impl;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.xworkz.dao.TrainDAO;
+import com.xworkz.trainentity.TrainEntity;
+
+@Component
+public class TrainImpl implements TrainDAO {
+	
+	@Autowired
+	private SessionFactory factory;
+	public TrainImpl() {
+		System.out.println("TrainImpl() Invoked");
+	}
+	
+
+	@Override
+	public void saveTrain(TrainEntity entity) {
+		try {
+			Configuration configuration = new Configuration();
+			configuration.configure("train.cfg.xml");
+			factory = configuration.buildSessionFactory();
+			Session session = factory.openSession();
+			Transaction transaction = session.beginTransaction();
+			session.persist(entity);
+			System.out.println("saved successfully");
+			transaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

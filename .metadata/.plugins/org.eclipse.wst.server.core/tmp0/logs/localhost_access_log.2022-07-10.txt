@@ -1,0 +1,10 @@
+127.0.0.1 - - [10/Jul/2022:20:30:33 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:37 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:38 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:38 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:38 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:38 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:39 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:40 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:41 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775
+0:0:0:0:0:0:0:1 - - [10/Jul/2022:20:30:41 +0530] "GET /spring-app/image.jpg HTTP/1.1" 404 775

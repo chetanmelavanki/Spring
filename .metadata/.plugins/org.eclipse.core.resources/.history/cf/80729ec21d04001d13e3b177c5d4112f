@@ -1,0 +1,7 @@
+package com.xworkz.tester;
+
+public class ServiceTester {
+	public static void main(String[] args) {
+		
+	}
+}

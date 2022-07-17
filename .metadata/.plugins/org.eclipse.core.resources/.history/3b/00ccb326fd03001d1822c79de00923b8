@@ -1,0 +1,13 @@
+package com.xworkz.tester;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.xworkz.impl.TrainImpl;
+
+public class TrainTester {
+	public static void main(String[] args) {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("context.xml");
+		TrainImpl impl = applicationContext.getBean(TrainImpl.class);
+	}
+}

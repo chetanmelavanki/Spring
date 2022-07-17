@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;sport-app/Dog-app&apos;" deleteContents="false" description="Delete resource &apos;sport-app/Dog-app&apos;" element1="/sport-app/Dog-app" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1656915796196"/>&#x0A;&#x0A;<refactoring comment="Delete resource &apos;Dog-app/src/main/java/com/xworkz/dao/DogDaoImplSQL.java&apos;" deleteContents="false" description="Delete resource &apos;Dog-app/src/main/java/com/xworkz/dao/DogDaoImplSQL.java&apos;" element1="/Dog-app/src/main/java/com/xworkz/dao/DogDaoImplSQL.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1657093439877"/>
+</session>
