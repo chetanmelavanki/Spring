@@ -9,5 +9,23 @@
 
 	<context:component-scan base-package="com.xworkz"></context:component-scan>
 
+	<bean
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+		name="sessionFactory">
+		<property name="dataSource" ref="datasource"></property>
+		<property name="annotatedClasses">
+			<value>com.xworkz.trainentity.TrainEntity</value>
+		</property>
+	</bean>
 
+	<bean
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		id="datasource">
+		<constructor-arg name="url"
+			value="jdbc:mysql://localhost:3306/train"></constructor-arg>
+		<constructor-arg name="username" value="root"></constructor-arg>
+		<constructor-arg name="password" value="ROOT"></constructor-arg>
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver"></property>
+	</bean>
 </beans>
