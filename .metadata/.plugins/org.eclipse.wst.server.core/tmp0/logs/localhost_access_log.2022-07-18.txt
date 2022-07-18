@@ -1,0 +1,10 @@
+127.0.0.1 - - [18/Jul/2022:09:57:46 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [18/Jul/2022:09:58:56 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [18/Jul/2022:09:59:59 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [18/Jul/2022:10:00:46 +0530] "GET /train/readData HTTP/1.1" 400 878
+0:0:0:0:0:0:0:1 - - [18/Jul/2022:10:00:46 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [18/Jul/2022:10:01:18 +0530] "GET /train/saveData HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [18/Jul/2022:10:01:34 +0530] "GET /train/saveData?trainName=shri&trainColor=blue&trainSpeed=900&trainCompartments=67b HTTP/1.1" 200 764
+127.0.0.1 - - [18/Jul/2022:10:07:36 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [18/Jul/2022:10:08:00 +0530] "GET /train/saveData?trainName=Gg&trainColor=white&trainSpeed=34332&trainCompartments=243l HTTP/1.1" 200 764
+0:0:0:0:0:0:0:1 - - [18/Jul/2022:10:09:15 +0530] "GET /train/saveData?trainName=Golagumbaz+Express&trainColor=Red&trainSpeed=150&trainCompartments=69n HTTP/1.1" 200 764

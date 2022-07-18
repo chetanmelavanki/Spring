@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -24,10 +24,14 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		id="datasource">
 		<constructor-arg name="url"
-			value="jdbc:mysql://localhost:3306/train"></constructor-arg>
-		<constructor-arg name="username" value="root"></constructor-arg>
-		<constructor-arg name="password" value="ROOT"></constructor-arg>
+			value="${jdbcUrl}"></constructor-arg>
+		<constructor-arg name="username" value="${userName}"></constructor-arg>
+		<constructor-arg name="password" value="${passWord}"></constructor-arg>
 		<property name="driverClassName"
-			value="com.mysql.cj.jdbc.Driver"></property>
+			value="${driverClass}"></property>
 	</bean>
-</beans>
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="mysql.properties"></property>
+	</bean>
+</beans> -->

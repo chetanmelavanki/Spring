@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan
+		base-package="com.xworkz"></context:component-scan>
+
+	<bean
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+		name="sessionFactory">
+		<property name="dataSource" ref="datasource"></property>
+		<property name="annotatedClasses">
+			<value>com.xworkz.trainentity.TrainEntity</value>
+		</property>
+		<property name="configLocations"
+			value="mysql.properties"></property>
+	</bean>
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		
+	</bean>
+	<bean
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		id="datasource">
+		<constructor-arg name="url" value="${url}"></constructor-arg>
+		<constructor-arg name="username" value="${userName}"></constructor-arg>
+		<constructor-arg name="password" value="${passWord}"></constructor-arg>
+		<property name="driverClassName" value="${driverClass}"></property>
+	</bean>
+
+</beans>

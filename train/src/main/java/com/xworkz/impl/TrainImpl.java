@@ -19,14 +19,15 @@ public class TrainImpl implements TrainDAO {
 	public TrainImpl() {
 		System.out.println("TrainImpl() Invoked");
 	}
-
+	Session session;
+	Transaction transaction;
 	@Override
 	public void saveTrain(TrainEntity entity) {
 		try {
 
 			System.out.println("inside try");
-			Session session = sessionFactory.openSession();
-			Transaction transaction = session.beginTransaction();
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
 			System.out.println("transaction created");
 			session.persist(entity);
 			System.out.println("persit() Invoked");
@@ -35,7 +36,11 @@ public class TrainImpl implements TrainDAO {
 			System.out.println("transaction.commit()");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			e.printStackTrace();
+		}finally {
+			if(session!=null) {
+				session.close();
+				System.out.println("session is closed");
+			}
 		}
 
 	}

@@ -18,7 +18,7 @@ public class ServiceTester {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		TrainImpl impl = applicationContext.getBean(TrainImpl.class);
 		TrainEntity entity = new TrainEntity();
-		entity.setTrainName("Shri");
+		entity.setTrainName("chetan");
 		entity.setTrainColor("cyan");
 		entity.setTrainSpeed(78);
 		entity.setTrainCompartments("96j");
