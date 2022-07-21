@@ -12,10 +12,11 @@ public class ServiceImpl implements TrainService {
 	}
 	@Autowired
 	private TrainImpl trainImpl;
-	boolean flag = true;
+	
 
 	@Override
 	public boolean validateTrainEntity(TrainEntity entity) {
+		boolean flag = true;
 		try {
 			
 		} catch (Exception e) {

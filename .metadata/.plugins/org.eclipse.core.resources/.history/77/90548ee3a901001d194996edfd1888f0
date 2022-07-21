@@ -1,7 +1,0 @@
-package com.xworkz.train;
-
-public class Train {
-	public Train() {
-		System.out.println(this.getClass().getSimpleName()+" bean created");
-	}
-}

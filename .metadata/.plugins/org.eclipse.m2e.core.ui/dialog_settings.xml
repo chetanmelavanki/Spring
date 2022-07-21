@@ -50,8 +50,8 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="bus-app"/>
 			<item value="bike-app"/>
+			<item value="bus-app"/>
 			<item value="train"/>
 			<item value="webapp"/>
 		</list>
