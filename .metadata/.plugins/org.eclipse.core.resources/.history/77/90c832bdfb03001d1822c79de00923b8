@@ -1,5 +1,0 @@
-package com.xworkz.dao;
-
-public interface TrainDAO {
-	
-}

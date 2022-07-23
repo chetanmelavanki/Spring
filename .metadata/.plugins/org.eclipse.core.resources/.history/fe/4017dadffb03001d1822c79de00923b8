@@ -1,7 +1,0 @@
-package com.xworkz.impl;
-
-import com.xworkz.dao.TrainDAO;
-
-public class TrainImpl implements TrainDAO{
-
-}

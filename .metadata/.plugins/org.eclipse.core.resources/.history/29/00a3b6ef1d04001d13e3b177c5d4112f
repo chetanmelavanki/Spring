@@ -1,9 +1,0 @@
-package com.xworkz.tester;
-
-import com.xworkz.trainentity.TrainEntity;
-
-public class ServiceTester {
-	public static void main(String[] args) {
-		TrainEntity entity = new TrainEntity("Ranichannamma","Red",150,"200c");
-	}
-}
