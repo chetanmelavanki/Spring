@@ -70,6 +70,7 @@ public class BikeController {
 		System.out.println("searchBikeByBikeName Invoked()");
 		boolean isBikeNameValid = this.bikeService.validateBikeName(bikeName);
 		if (isBikeNameValid) {
+			System.out.println("bike name is valid");
 			BikeEntity bikeEntity = this.bikeService.findBikeEntity(bikeName);
 			if (bikeEntity != null) {
 				model.addAttribute("BikeName", bikeEntity.getBikeName());

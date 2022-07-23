@@ -1,11 +1,11 @@
 package com.xworkz.dto;
 
 public class BikeDTO {
-	String bikeName;
-	String bikeColor;
-	String bikeBrand;
-	double bikeCost;
-	String bikeType;
+	private String bikeName;
+	private String bikeColor;
+	private String bikeBrand;
+	private double bikeCost;
+	private String bikeType;
 
 	public BikeDTO() {
 		System.out.println(this.getClass().getSimpleName() + "Invoked.");

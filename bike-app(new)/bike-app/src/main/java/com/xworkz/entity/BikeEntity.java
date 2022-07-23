@@ -11,33 +11,35 @@ import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Table(name = "bike_table")
-@NamedQuery(name = "BikeEntity.findBikeEntity",query = "from BikeEntity where bikeName=:BIKENAME")
+@NamedQuery(name = "BikeEntity.findBikeEntity", query = "from BikeEntity where bikeName=:BIKENAME")
 public class BikeEntity {
 
 	@Id
 	@Column(name = "bike_id")
-	@GenericGenerator(name = "x",strategy = "increment")
+	@GenericGenerator(name = "x", strategy = "increment")
 	@GeneratedValue(generator = "x")
-	int bikeId;
+	private int bikeId;
 
 	@Column(name = "bike_name")
-	String bikeName;
+	private String bikeName;
 
 	@Column(name = "bike_color")
-	String bikeColor;
+	private String bikeColor;
 
 	@Column(name = "bike_brand")
-	String bikeBrand;
+	private String bikeBrand;
 
 	@Column(name = "bike_cost")
-	double bikeCost;
+	private double bikeCost;
 
 	@Column(name = "bike_type")
-	String bikeType;
+	private String bikeType;
+	
 
 	public BikeEntity() {
-		System.out.println("default constructor invoked");
+		System.out.println("default constructor Invoked");
 	}
+
 	public BikeEntity(String bikeName, String bikeColor, String bikeBrand, double bikeCost, String bikeType) {
 		super();
 		this.bikeName = bikeName;
@@ -94,6 +96,7 @@ public class BikeEntity {
 	public void setBikeType(String bikeType) {
 		this.bikeType = bikeType;
 	}
+
 
 	@Override
 	public String toString() {

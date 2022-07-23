@@ -93,8 +93,8 @@ public class BikeServiceImpl implements BikeService {
 	@Override
 	public boolean validateBikeName(String bikeName) {
 		try {
-			return !bikeName.isEmpty() && !bikeName.isBlank() && bikeName != null ? true : false;
-		} catch (Exception e) {
+			return bikeName!=null && !bikeName.isEmpty() && !bikeName.isBlank()  ? true : false;
+		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}
 		return false;
@@ -102,7 +102,12 @@ public class BikeServiceImpl implements BikeService {
 
 	@Override
 	public BikeEntity findBikeEntity(String bikeName) {
-		System.out.println("findBikeEntity Invioked()");
+		try {
+			System.out.println("findBikeEntity Invioked()");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
 		return this.bikeDao.findBikeEntity(bikeName);
 	}
 

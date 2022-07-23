@@ -33,8 +33,8 @@
 	<h1>Enter bike name to search bike</h1>
 	<h4 style="color: red">${errorBikeName}</h4>
 	<form action="searchBike">
-		<input type="text" name="bikeName" placeholder="enter bike name..">
-		<input type="submit" value="Search">
+		<input type="text" name="bikeName" placeholder="enter bike name.."><input
+			type="submit" value="Search">
 	</form>
 	<ol>
 		<li>${BikeName}</li>
