@@ -1,5 +1,7 @@
 package com.xworkz.service;
 
+import java.util.List;
+
 import com.xworkz.dto.BikeDTO;
 import com.xworkz.entity.BikeEntity;
 
@@ -10,5 +12,7 @@ public interface BikeService {
 
 	public boolean validateBikeName(String bikeName);
 
-	public BikeEntity findBikeEntity(String bikeName);
+	public BikeDTO getBikeDTOByBikeName(String bikeName);
+
+	public List<Object> getlistOfBike();
 }

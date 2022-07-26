@@ -1,8 +1,20 @@
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>BIKE</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+	text-align: center;
+	background: silver;
+}
+</style>
+
 </head>
 <body>
 	<form action="readForm">
@@ -36,12 +48,32 @@
 		<input type="text" name="bikeName" placeholder="enter bike name.."><input
 			type="submit" value="Search">
 	</form>
-	<ol>
-		<li>${BikeName}</li>
-		<li>${BikeColor}</li>
-		<li>${BikeBrand}</li>
-		<li>${BikeCost}</li>
-		<li>${BikeType}</li>
-	</ol>
+	<table>
+		<tr>
+			<th>bike_id</th>
+			<th>bike_color</th>
+			<th>bike_brand</th>
+			<th>bike_cost</th>
+			<th>bike_type</th>
+		</tr>
+		<tr>
+			<td>${BikeName}</td>
+			<td>${BikeColor}</td>
+			<td>${BikeBrand}</td>
+			<td>${BikeCost}</td>
+			<td>${BikeType}</td>
+		</tr>
+	</table>
+	
+	<a href="getAllbike">Get all bike datails</a>
+	<table>
+		<tr>
+			<th>bike_id</th>
+			<th>bike_color</th>
+			<th>bike_brand</th>
+			<th>bike_cost</th>
+			<th>bike_type</th>
+		</tr>
+	</table>
 </body>
 </html>

@@ -1,20 +1,20 @@
 package com.xworkz.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.xworkz.dto.BikeDTO;
-import com.xworkz.entity.BikeEntity;
 import com.xworkz.service.BikeService;
 import com.xworkz.service.BikeServiceImpl;
 
-@Component
+@Controller
 @RequestMapping("/")
 public class BikeController {
 
@@ -64,6 +64,14 @@ public class BikeController {
 		}
 		return "/WEB-INF/bikeform.jsp";
 	}
+	@RequestMapping("/getAllbike")
+	public String getAllbikeInformation(Model model) {
+		System.out.println("getAllbikeInformation() Invoked");
+		
+		List<Object> listOfObjects =  this.bikeService.getlistOfBike();
+		model.addAttribute("getAllBikes", listOfObjects);
+		return "/WEB-INF/bikeform.jsp";
+	}
 
 	@RequestMapping(value = "/searchBike")
 	public String searchBikeByBikeName(@RequestParam String bikeName, Model model) {
@@ -71,21 +79,23 @@ public class BikeController {
 		boolean isBikeNameValid = this.bikeService.validateBikeName(bikeName);
 		if (isBikeNameValid) {
 			System.out.println("bike name is valid");
-			BikeEntity bikeEntity = this.bikeService.findBikeEntity(bikeName);
-			if (bikeEntity != null) {
-				model.addAttribute("BikeName", bikeEntity.getBikeName());
-				model.addAttribute("BikeColor", bikeEntity.getBikeColor());
-				model.addAttribute("BikeBrand", bikeEntity.getBikeBrand());
-				model.addAttribute("BikeCost", bikeEntity.getBikeCost());
-				model.addAttribute("BikeType", bikeEntity.getBikeType());
+			BikeDTO dto = this.bikeService.getBikeDTOByBikeName(bikeName);
+			if (dto != null) {
+				model.addAttribute("BikeName", dto.getBikeName());
+				model.addAttribute("BikeColor", dto.getBikeColor());
+				model.addAttribute("BikeBrand", dto.getBikeBrand());
+				model.addAttribute("BikeCost", dto.getBikeCost());
+				model.addAttribute("BikeType", dto.getBikeType());
 			} else {
 				model.addAttribute("errorBikeName", "no data found for " + bikeName + " check spelling ");
 			}
 
 		} else {
-			model.addAttribute("errorBikeName", "Invlid Input ..enter valid data");
+			model.addAttribute("errorBikeName", "Invlid Input or ..enter valid data");
 		}
 		return "/WEB-INF/bikeform.jsp";
 
 	}
+	
+	
 }

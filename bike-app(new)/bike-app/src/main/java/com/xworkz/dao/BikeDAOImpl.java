@@ -1,5 +1,7 @@
 package com.xworkz.dao;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -46,40 +48,71 @@ public class BikeDAOImpl implements BikeDao {
 
 	@Override
 	public BikeEntity findBikeEntity(String bikeName) {
-		System.out.println("findBikeEntity invoked from "+this.getClass().getSimpleName());
-		Session session =null;
-		BikeEntity bikeEntity= null;
-		
-			try {
-				System.out.println("opening session");
-				session = sessionfactory.openSession();
-				System.out.println("session is opened");
-				Query query = session.createNamedQuery("BikeEntity.findBikeEntity");
-				query.setParameter("BIKENAME", bikeName);
-				System.out.println("named query invoked");
-				Object object= query.uniqueResult();
-				System.out.println("query executed");
-				bikeEntity= (BikeEntity)object;
-				if (bikeEntity!=null) {
-					return bikeEntity;
-				}else {
-					System.out.println("bike entity not found");
-				}
-				
-			} catch (HibernateException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-			}finally {
-				if (session != null) {
-					session.close();
-					System.out.println("session is closed");
-				} else {
-					System.out.println("session is not closed");
-				}
+		System.out.println("findBikeEntity invoked from " + this.getClass().getSimpleName());
+		Session session = null;
+		BikeEntity bikeEntity = null;
 
+		try {
+			System.out.println("opening session");
+			session = sessionfactory.openSession();
+			System.out.println("session is opened");
+			Query query = session.createNamedQuery("BikeEntity.findBikeEntity");
+			query.setParameter("BIKENAME", bikeName);
+			System.out.println("named query invoked");
+			Object object = query.uniqueResult();
+			System.out.println("query executed");
+			bikeEntity = (BikeEntity) object;
+			if (bikeEntity != null) {
+				return bikeEntity;
+			} else {
+				System.out.println("bike entity not found");
 			}
 
+		} catch (HibernateException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+				System.out.println("session is closed");
+			} else {
+				System.out.println("session is not closed");
+			}
+
+		}
+
 		return bikeEntity;
+	}
+
+	@Override
+	public List<BikeEntity> getListOfBikeEntity() {
+		System.out.println("getListOfBikeEntity invoked from " + this.getClass().getSimpleName());
+		Session session = null;
+		BikeEntity bikeEntity = null;
+		List<BikeEntity> list=null;
+
+		try {
+			System.out.println("opening session");
+			session = sessionfactory.openSession();
+			System.out.println("session is opened");
+			Query query = session.createNamedQuery("BikeEntity.getAllBike");
+			list = query.list();
+			
+			return list;
+		} catch (HibernateException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+				System.out.println("session is closed");
+			} else {
+				System.out.println("session is not closed");
+			}
+
+		}
+
+		return list;
 	}
 
 }

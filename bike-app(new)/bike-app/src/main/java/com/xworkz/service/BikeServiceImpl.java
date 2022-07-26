@@ -1,8 +1,11 @@
 package com.xworkz.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -82,9 +85,10 @@ public class BikeServiceImpl implements BikeService {
 	public boolean saveData(BikeDTO dto) {
 
 		// 1 step copy all data from entity class
-		BikeEntity bikeEntity = new BikeEntity(dto.getBikeName(), dto.getBikeColor(), dto.getBikeBrand(),
-				dto.getBikeCost(), dto.getBikeType());
-
+//		BikeEntity bikeEntity = new BikeEntity(dto.getBikeName(), dto.getBikeColor(), dto.getBikeBrand(),
+//				dto.getBikeCost(), dto.getBikeType());
+		BikeEntity bikeEntity = new BikeEntity();
+		BeanUtils.copyProperties(dto, bikeEntity);
 		// 2 step invoke dao
 		boolean isbikeEntitySaved = this.bikeDao.saveBikeEntity(bikeEntity);
 		return isbikeEntitySaved;
@@ -93,7 +97,7 @@ public class BikeServiceImpl implements BikeService {
 	@Override
 	public boolean validateBikeName(String bikeName) {
 		try {
-			return bikeName!=null && !bikeName.isEmpty() && !bikeName.isBlank()  ? true : false;
+			return bikeName != null && !bikeName.isEmpty() && !bikeName.isBlank() ? true : false;
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}
@@ -101,14 +105,30 @@ public class BikeServiceImpl implements BikeService {
 	}
 
 	@Override
-	public BikeEntity findBikeEntity(String bikeName) {
-		try {
-			System.out.println("findBikeEntity Invioked()");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public BikeDTO getBikeDTOByBikeName(String bikeName) {
+		System.out.println("findBikeEntity Invioked()");
 
-		return this.bikeDao.findBikeEntity(bikeName);
+		BikeEntity bikeEntity = this.bikeDao.findBikeEntity(bikeName);
+		BikeDTO bikeDTO = new BikeDTO();
+		BeanUtils.copyProperties(bikeEntity, bikeDTO);
+		return bikeDTO;
+	}
+
+	@Override
+	public List<Object> getlistOfBike() {
+		List<Object> listOfBikeObject=null;
+		List<BikeEntity> list = this.bikeDao.getListOfBikeEntity();
+		if (list!=null) {
+			listOfBikeObject = new ArrayList<>();
+			for (BikeEntity bikeEntity : list) {
+				listOfBikeObject.add(bikeEntity);
+				System.out.println(bikeEntity.toString());
+			}
+		} else {
+			System.out.println("bike entity not found");
+		}
+	
+		return listOfBikeObject;
 	}
 
 }

@@ -12,6 +12,7 @@ import org.hibernate.annotations.NamedQuery;
 @Entity
 @Table(name = "bike_table")
 @NamedQuery(name = "BikeEntity.findBikeEntity", query = "from BikeEntity where bikeName=:BIKENAME")
+@NamedQuery(name = "BikeEntity.getAllBike",query = "from BikeEntity")
 public class BikeEntity {
 
 	@Id
@@ -49,13 +50,7 @@ public class BikeEntity {
 		this.bikeType = bikeType;
 	}
 
-	public int getBikeId() {
-		return bikeId;
-	}
-
-	public void setBikeId(int bikeId) {
-		this.bikeId = bikeId;
-	}
+	
 
 	public String getBikeName() {
 		return bikeName;
